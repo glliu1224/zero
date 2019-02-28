@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>zero</artifactId>
+        <groupId>com.arc</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.arc</groupId>
+    <artifactId>web</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>web</name>
+    <description>前段支撑项目</description>
+    <packaging>pom</packaging>
+
+    <dependencies>
+        <!--common-->
+        <dependency>
+            <groupId>com.arc</groupId>
+            <artifactId>common</artifactId>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+    <modules>
+        <module>server</module>
+        <module>web-security</module>
+        <module>web-blog</module>
+    </modules>
+</project>

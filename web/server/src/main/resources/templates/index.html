@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{/resource/css/login/login.css}"/>
+
+    <title>index</title>
+</head>
+<body>
+
+<div id="container">
+    <div id="wrapper">
+
+        <div id="login" class="animate form">
+
+            <form action="/cspmanage/login/form" method="post" onSubmit="onsSubmitFun()">
+                <h1>登陆系统</h1>
+                <p class="user">
+                    <label for="username"  data-icon="u"> 用户名： </label>
+                    <input id="username" name="username"   required="required" type="text" placeholder="请输入用户名"/>
+                    <span class="verify">请输入用户名</span>
+                </p>
+                <p class="pass">
+                    <label for="password"  data-icon="p"> 密&emsp;码： </label>
+                    <input id="password" name="password"  required="required" type="password" placeholder="请输入密码"/>
+                    <span class="verify">请输入密码</span>
+                </p>
+                <p class="login button">
+                    <input id="loginBtn" type="submit" value="登录"/>
+                </p>
+                <input type="checkbox" name="remember-me"/> 记住我
+            </form>
+        </div>
+    </div>
+</div>
+<script th:src="@{/webjars/github-com-novaeye-jquery-easyui-bower/1.5.0.1/jquery.min.js}"></script>
+<script th:src="@{/resource/js/common/aes.js}"></script>
+<script th:src="@{/resource/js/common/pad-zeropadding-min.js}"></script>
+<script th:src="@{/resource/js/login/login.js}"></script>
+<script type="text/javascript">
+    //加密方法
+    function encrypt(data) {
+        var key = CryptoJS.enc.Latin1.parse("91dGsCsjD%IbnMLg");
+        var iv = CryptoJS.enc.Latin1.parse("o0dneh38V^R8*kjs");
+        return CryptoJS.AES.encrypt(data, key, {
+            iv: iv,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.ZeroPadding
+        }).toString();
+    }
+
+    //失去焦点事件
+/*    $('#password').blur(function () {
+        var rePass = encrypt($(this).val() );//密文
+        console.log($(this).val() + "--->" + rePass);
+        $(this).val(rePass);//加密
+    });
+    */
+
+
+    function onsSubmitFun() {
+        //失去焦点事件
+            var rePass = encrypt($("#password").val() );//密文
+            console.log($("#password").val() + "--->" + rePass);
+            $("#password").val(rePass);//加密
+    }
+
+</script>
+</body>
+</html>
