@@ -7,8 +7,8 @@ import java.util.List;
 /**
  * 博客信息相关服务
  *
- * @author: 叶超
- * @since: 2019/1/30 15:09
+ * @author 叶超
+ * @since 2019/1/30 17:33
  */
 public interface BlogArticleService {
 

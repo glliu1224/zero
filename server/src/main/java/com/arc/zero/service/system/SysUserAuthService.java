@@ -2,10 +2,10 @@ package com.arc.zero.service.system;
 
 import com.arc.model.domain.system.SysUserAuth;
 
+
 /**
- * @description:
- * @author: yechao
- * @date: 2019/1/24 11:16
+ * @author 叶超
+ * @since 2019/1/30 17:33
  */
 public interface SysUserAuthService {
 

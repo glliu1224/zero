@@ -9,8 +9,8 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * @author: yechao
- * @since : 2019/1/13 19:41
+ * @author yechao
+ * @since 2019/1/13 19:41
  */
 @Service
 public class SysFileServiceImpl implements SysFileService {
@@ -21,7 +21,7 @@ public class SysFileServiceImpl implements SysFileService {
 
     @Override
     public Long save(SysFile sysFile) {
-        return sysFileMapper.save(sysFile)==0? null: sysFile.getId();
+        return sysFileMapper.save(sysFile) == 0 ? null : sysFile.getId();
     }
 
     @Override

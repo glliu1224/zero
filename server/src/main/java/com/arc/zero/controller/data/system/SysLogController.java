@@ -15,9 +15,9 @@ import javax.annotation.Resource;
 
 /**
  * data 包下的 controller仅仅用作  返回json数据 ，禁止页面跳转使用，页面跳转使用的操作请移步web包
+ * 用户相关的的接口by RESTful
  *
  * @author 叶超
- * 用户相关的的接口by RESTful
  * @date 2018/12/25
  */
 @Api
@@ -73,7 +73,7 @@ public class SysLogController {
      * 对于必要参数没有传则判断了一下会返回错误代码
      * http://ip:port/sysLog/
      *
-     * @return
+     * @return ResponseVo
      */
 //    @PutMapping("/")
     @PostMapping("/update")
@@ -86,8 +86,8 @@ public class SysLogController {
      * 获取单个用户
      * ApiImplicitParam这个注解不只是注解，还会影响运行期的程序，例子如下：
      *
-     * @param id
-     * @return
+     * @param id 主键
+     * @return ResponseVo
      */
     @ApiImplicitParams({@ApiImplicitParam(paramType = "path", name = "id", value = "主键ID", dataType = "long", required = true)})
     @GetMapping(value = "/get/{id}")
@@ -106,7 +106,7 @@ public class SysLogController {
     /**
      * 获取用户列表
      *
-     * @return
+     * @return ResponseVo
      */
     //@todo page 分页插件
     @GetMapping(value = "/page")

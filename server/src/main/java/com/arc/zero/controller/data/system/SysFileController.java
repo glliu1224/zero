@@ -21,7 +21,7 @@ import java.io.*;
  * 文件上传接口
  *
  * @author May
- * @since : 2019/1/13 17:51
+ * @since 2019/1/13 17:51
  */
 @Slf4j
 @RestController
@@ -94,10 +94,10 @@ public class SysFileController {
         System.out.println(file.isEmpty());
         System.out.println(StringUtils.isEmpty(path));
 
-        if (file == null || file.isEmpty() || StringUtils.isEmpty(path)) {
-            log.info("上传失败，文件或者路径为空！");
-            return null;
-        }
+//        if (file == null || file.isEmpty() || StringUtils.isEmpty(path)) {
+//            log.info("上传失败，文件或者路径为空！");
+//            return null;
+//        }
 
         log.debug("文件上传入参: 名称={}，大小={} bytes， 类型={}", file.getOriginalFilename(), file.getSize(), file.getContentType());
 
@@ -166,7 +166,7 @@ public class SysFileController {
 
 
     ////////////////////////////////////////////////////////////////////////////////////////
-
+//todo 方法抽取
     public static String writeToDisk(InputStream inputStream, String outDir) {
 
         OutputStream outputStream = null;
@@ -280,30 +280,25 @@ public class SysFileController {
         String charSet = "UTF-8";
         //写字符转换成字节流
         FileOutputStream fileWriter = new FileOutputStream(file);
-        OutputStreamWriter writer = new OutputStreamWriter(fileWriter, charSet);
-        try {
+        try (OutputStreamWriter writer = new OutputStreamWriter(fileWriter, charSet);
+        ) {
             writer.write("测试输入字符串1");
         } catch (Exception e) {
             // TODO: handle exception
-        } finally {
-            writer.close();
         }
         //读取字节转换到字符
         FileInputStream fileInputStream = new FileInputStream(file);
-        InputStreamReader reader = new InputStreamReader(fileInputStream, charSet);
         StringBuilder builder = new StringBuilder();
         char[] buf = new char[64];
-        int count = 0;
-        try {
+        int count;
+        try (InputStreamReader reader = new InputStreamReader(fileInputStream, charSet);
+        ) {
             while ((count = reader.read(buf)) != -1) {
                 builder.append(buf, 0, count);
             }
         } catch (Exception e) {
             // TODO: handle exception
-        } finally {
-            reader.close();
         }
-        System.out.println(builder.toString());
+        log.debug("builder.toString()结果={}", builder.toString());
     }
-//
 }

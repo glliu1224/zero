@@ -10,8 +10,8 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * @author: 叶超
- * @since: 2019/2/2 11:42
+ * @author 叶超
+ * @since 2019/2/2 11:42
  */
 @Slf4j
 @Service("sysLogServiceImpl")
@@ -22,7 +22,7 @@ public class SysLogServiceImpl implements SysLogService {
 
     @Override
     public Long save(SysLog sysLog) {
-        return logMapper.save(sysLog)==1? sysLog.getId():null;
+        return logMapper.save(sysLog) == 1 ? sysLog.getId() : null;
     }
 
     @Override

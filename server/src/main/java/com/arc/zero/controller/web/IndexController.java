@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * web 包下的 controller仅仅用作页面跳转使用，禁止返回json数据， 返回json数据的操作请移步data包
  *
- * @author: 叶超
- * @date: 2019/1/2 23:24
+ * @author 叶超
+ * @since  2019/1/2 23:24
  */
 @Slf4j
 @Controller
