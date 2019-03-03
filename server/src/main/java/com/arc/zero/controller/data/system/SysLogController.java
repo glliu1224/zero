@@ -4,7 +4,6 @@ package com.arc.zero.controller.data.system;
 import com.arc.model.domain.system.SysLog;
 import com.arc.model.vo.ResponseVo;
 import com.arc.zero.service.system.SysLogService;
-import com.arc.zero.service.system.SysLogService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -28,7 +27,7 @@ import javax.annotation.Resource;
 @RequestMapping("/sys/log")
 public class SysLogController {
 
-    @Resource
+    @Resource(name = "sysLogServiceImpl")
     private SysLogService logService;
 
     //增删改查

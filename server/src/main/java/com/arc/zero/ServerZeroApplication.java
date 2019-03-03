@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableTransactionManagement
 @MapperScan("com.arc.zero.mapper")
 @SpringBootApplication
-public class ZeroApplication {
+public class ServerZeroApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ZeroApplication.class, args);
+        SpringApplication.run(ServerZeroApplication.class, args);
     }
 
     @RequestMapping("/info")
