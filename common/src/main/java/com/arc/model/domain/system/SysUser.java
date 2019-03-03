@@ -37,4 +37,9 @@ public class SysUser extends BaseModel {
     private List<SysUserAuth> auths;//多种登录方式
 
     private List<SysRole> roles;
+
+    public SysUser(Long id, String nickname) {
+        this.id = id;
+        this.nickname = nickname;
+    }
 }
