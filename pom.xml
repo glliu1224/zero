@@ -24,6 +24,12 @@
         <poi.version>4.0.1</poi.version>
     </properties>
 
+    <modules>
+        <module>common</module>
+        <module>server</module>
+        <module>tool-mybatis</module>
+    </modules>
+
     <!--注意依赖的版本号， 我懒， 没有提上去！！！-->
     <dependencyManagement>
         <dependencies>
@@ -63,22 +69,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-
-    <modules>
-        <module>common</module>
-        <module>server</module>
-        <module>tool-mybatis</module>
-        <!--<module>web</module>-->
-    </modules>
-
-    <!--<build>-->
-    <!--<plugins>-->
-    <!--<plugin>-->
-    <!--<groupId>org.springframework.boot</groupId>-->
-    <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
-    <!--</plugin>-->
-    <!--</plugins>-->
-    <!--</build>-->
 
 </project>

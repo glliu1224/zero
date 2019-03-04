@@ -13,10 +13,10 @@ import javax.annotation.Resource;
 
 /**
  * data 包下的 controller仅仅用作  返回json数据 ，禁止页面跳转使用，页面跳转使用的操作请移步web包
+ * 用户相关的的接口by RESTful
  *
  * @author 叶超
- * 用户相关的的接口by RESTful
- * @date 2018/12/25
+ * @since  2018/12/25
  */
 @Api
 @Slf4j
@@ -37,8 +37,8 @@ public class SysUserController {
      * 1请求类型为Content-Type:application/json
      * 2方法： POST
      *
-     * @param user
-     * @return
+     * @param user SysUser
+     * @return ResponseVo
      */
     @PostMapping(value = "/save")
     public ResponseVo save(@RequestBody SysUser user) {
@@ -53,8 +53,8 @@ public class SysUserController {
      * 表示删除id为1的数据
      * 方法： DELETE
      * http://lip:port/user/1
-     *
-     * @return
+     @param id  Long id
+     * @return ResponseVo
      */
 //    @DeleteMapping(value = "/{id}")
     @GetMapping(value = "/delete/{id}")
@@ -72,7 +72,7 @@ public class SysUserController {
      * 对于必要参数没有传则判断了一下会返回错误代码
      * http://ip:port/user/
      *
-     * @return
+     * @return ResponseVo
      */
 //    @PutMapping("/")
     @PostMapping("/update")
@@ -84,8 +84,8 @@ public class SysUserController {
     /**
      * 获取单个用户
      *
-     * @param id
-     * @return
+     * @param id Long
+     * @return ResponseVo
      */
     @GetMapping(value = "/get/{id}")
     public ResponseVo get(@PathVariable Long id) {
@@ -96,7 +96,7 @@ public class SysUserController {
     /**
      * 获取用户列表
      *
-     * @return
+     * @return ResponseVo
      */
     //@todo page 分页插件
     @GetMapping(value = "/page")

@@ -1,9 +1,9 @@
 package com.arc.zero.service.system;
 
+
 /**
- * @description:
- * @author: yechao
- * @date: 2019/1/25 11:23
+ * @author 叶超
+ * @since 2019/1/30 17:33
  */
 public interface SysResourceService {
 }

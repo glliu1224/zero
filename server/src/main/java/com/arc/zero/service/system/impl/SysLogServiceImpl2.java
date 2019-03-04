@@ -11,9 +11,8 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * @author: yechao
- * @date: 2018/11/10 19:01
- * @description:
+ * @author yechao
+ * @date 2018/11/10 19:01
  */
 @Slf4j
 @Service("sysLogServiceImpl2")

@@ -4,9 +4,10 @@ import com.arc.model.domain.system.SysLog;
 
 import java.util.List;
 
+
 /**
- * @author: 叶超
- * @since: 2019/2/2 11:37
+ * @author 叶超
+ * @since 2019/1/30 17:33
  */
 public interface SysLogService {
 

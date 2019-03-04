@@ -12,8 +12,8 @@ import javax.annotation.Resource;
 /**
  * 博客信息主出口
  *
- * @author: 叶超
- * @since: 2019/1/30 15:17
+ * @author 叶超
+ * @since 2019/1/30 15:17
  */
 @Api
 @Slf4j

@@ -4,10 +4,10 @@ import com.arc.model.domain.system.SysRole;
 
 import java.util.List;
 
+
 /**
- * @description:
- * @author: yechao
- * @date: 2019/1/25 11:06
+ * @author 叶超
+ * @since 2019/1/30 17:33
  */
 public interface SysRoleService {
 
