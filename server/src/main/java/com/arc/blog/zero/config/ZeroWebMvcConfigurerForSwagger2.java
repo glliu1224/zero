@@ -1,4 +1,4 @@
-package com.arc.zero.config;
+package com.arc.blog.zero.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
