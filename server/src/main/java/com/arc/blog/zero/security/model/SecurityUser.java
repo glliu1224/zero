@@ -27,7 +27,6 @@ public class SecurityUser implements org.springframework.security.core.userdetai
 
     private static final long serialVersionUID = 1L;
 
-
     private Collection<GrantedAuthority> authorities;
 
     private SysUser user;
