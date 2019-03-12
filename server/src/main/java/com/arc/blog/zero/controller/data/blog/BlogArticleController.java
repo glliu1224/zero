@@ -73,10 +73,6 @@ public class BlogArticleController {
         return ResponseVo.success(blogArticleService.update(blog));
     }
 
-    @GetMapping("/test/v1")
-    public ResponseVo v1() {
-        return ResponseVo.success(blogArticleService.list());
-    }
 
 
 }
