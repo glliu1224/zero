@@ -27,7 +27,7 @@ spring:
 #配置日志
 #  这里日志用xml去配置
 logback:
-  dir: /log
+  dir: ./log
 
 mybatis:
   #为实体对象所在的包，跟数据库表一一对应

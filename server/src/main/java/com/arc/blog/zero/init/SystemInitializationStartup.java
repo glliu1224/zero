@@ -24,7 +24,9 @@ public class SystemInitializationStartup implements ApplicationListener<ContextR
     public void onApplicationEvent(ContextRefreshedEvent event) {
         //Spring容器加载完毕之后执行: 以下方法
         if (initial) {
-            System.out.println("#####Spring容器加载完毕之后执行");
+            System.out.println("#########################");
+            System.out.println("Spring容器加载完毕之后执行，todo 一些初始化业务逻辑");
+            System.out.println("#########################");
         }
     }
 

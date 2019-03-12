@@ -17,12 +17,22 @@ public class ResponseVo<T> extends BaseVo {
 
     private static final long serialVersionUID = 1L;
 
-    //状态信息
+    /**
+     * 状态信息 code 用String或者数字类型（long/int？）。私以为：类型是数字类型 可能高效一些，
+     */
     private String code;
-    private String msg;
-    private Boolean success;
 
-    //有效数据
+    /**
+     * 状态信息
+     */
+    private String msg;
+
+
+//    private Boolean success;
+
+    /**
+     * 有效数据
+     */
     private T data;
 
     //构造器
@@ -32,7 +42,7 @@ public class ResponseVo<T> extends BaseVo {
     public ResponseVo(String code, String msg, Boolean success, T data) {
         this.code = code;
         this.msg = msg;
-        this.success = success;
+//        this.success = success;
         this.data = data;
     }
 
