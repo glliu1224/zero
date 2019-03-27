@@ -6,6 +6,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+/**
+ * @author 叶超
+ * @since 2019/3/26 17:15
+ */
 public class DateUtils {
 
     public static Long getDayBegin() {
@@ -43,6 +47,7 @@ public class DateUtils {
         Date date = simpleDateFormat.parse(dateString);
         return date;
     }
+
     public static String timeStamp2Date(Long time) {
 //        Long timeLong = Long.parseLong(time);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");//要转换的时间格式
@@ -55,6 +60,7 @@ public class DateUtils {
             return null;
         }
     }
+
     public static String longFormatStr(Long time) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date;
@@ -66,29 +72,30 @@ public class DateUtils {
             return null;
         }
     }
+
     /**
+     * @param value
+     * @return
      * @Title: objectConvertBigDecimal
      * @Description: Object类型的数字转Date
      * @author: ZXM
-     * @param value
-     * @return
      */
     public static String objectConvertDate(Object value) {
-        String strDate="";
+        String strDate = "";
         Long longDate = 0L;
         if (value != null) {
             if (value instanceof Long) {
                 longDate = (Long) value;
             } else if (value instanceof String) {
-                longDate =  Long.valueOf((String) value);
-            }else if(value instanceof Integer){
+                longDate = Long.valueOf((String) value);
+            } else if (value instanceof Integer) {
                 longDate = (Long) value;
             } else {
                 throw new ClassCastException("Not possible to coerce [" + value + "] from class " + value.getClass()
                         + " into a Long.");
             }
         }
-        strDate= longFormatStr(longDate);
+        strDate = longFormatStr(longDate);
         return strDate;
     }
 

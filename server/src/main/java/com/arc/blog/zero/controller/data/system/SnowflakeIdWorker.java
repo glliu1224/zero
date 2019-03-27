@@ -1,9 +1,6 @@
 package com.arc.blog.zero.controller.data.system;
 
-/**
- * @author 叶超
- * @since 2019/3/26 17:15
- */
+
 /**
  * Twitter_Snowflake<br>
  * SnowFlake的结构如下(每部分用-分开):<br>
