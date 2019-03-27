@@ -1,5 +1,7 @@
 package com.arc.blog.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
 
 import java.io.*;
@@ -14,6 +16,9 @@ import java.util.UUID;
  * 2018/10/22 18:09
  */
 public class FileUtil {
+
+    private static final Logger log = LoggerFactory.getLogger(FileUtil.class);
+
     /**
      * 英文点号
      * The extension separator character.
@@ -43,6 +48,34 @@ public class FileUtil {
      * The Windows separator character.
      */
     private static final char WINDOWS_SEPARATOR = '\\';
+
+    /**
+     * 根据文件后缀判断文件是否是图片
+     *
+     * @param suffix
+     * @return
+     */
+    public static boolean isImage(String suffix) {
+        if ((suffix != null) && (suffix.length() > 0)) {
+            //判断
+            switch (suffix) {
+                case "jpg":
+                case "jpeg":
+                    return true;
+                case "gif":
+                    return true;
+                case "png":
+                    return true;
+                case "bmp":
+                    return true;
+                case "pdf":
+                    return false;
+                default:
+                    return false;
+            }
+        }
+        return false;
+    }
 
     /**
      * @param filename     文件名称
@@ -351,6 +384,74 @@ public class FileUtil {
 
         System.out.println();
         System.out.println(getExtension(file2));
+    }
+
+
+    public static String writeToDisk(InputStream inputStream, String outDir) {
+        OutputStream outputStream = null;
+        try {
+            Assert.notNull(outDir, "No OutputStream specified");
+            File outFile = new File(outDir);
+            log.debug("结果outFile.exists={}", outFile.exists());
+            if (!outFile.exists()) {
+                boolean mkParentDirs = outFile.getParentFile().mkdirs();
+                log.debug("父级文件夹{}，创建是否成功：{}", outFile.getParent(), mkParentDirs);
+                boolean newFile = outFile.createNewFile();
+                log.debug("文件写入文件夹{}，是否成功：{}", outFile.getParent(), newFile);
+            }
+            outputStream = new FileOutputStream(outFile);
+            Assert.notNull(inputStream, "No InputStream specified");
+            Assert.notNull(outFile, "No OutputStream specified");
+            int byteCount = 0;
+            byte[] buffer = new byte[4096];
+            int bytesRead;
+            for (boolean var4 = true; (bytesRead = inputStream.read(buffer)) != -1; byteCount += bytesRead) {
+                outputStream.write(buffer, 0, bytesRead);
+            }
+            outputStream.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (outputStream != null) {
+                try {
+                    outputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    log.error(" OutputStream close出错", e);
+                }
+            }
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    log.error(" OutputStream close出错", e);
+                }
+            }
+        }
+        log.debug("文件保存在本地磁盘的位置为={}", outDir);
+        return outDir;
+    }
+
+
+    private String getContentType(String realPath) {
+        String extensionName = FileUtil.getExtensionName(realPath).toLowerCase();
+        switch (extensionName) {
+            case "jpg":
+            case "jpeg":
+                return "image/jpg";
+            case "gif":
+                return "image/gif";
+            case "png":
+                return "image/png";
+            case "bmp":
+                return "image/bmp";
+            case "pdf":
+                return "application/pdf";
+            default:
+                return "application/octet-stream";
+        }
     }
 
 

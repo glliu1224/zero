@@ -48,6 +48,12 @@
         FROM t_sys_file sys_file_
         WHERE sys_file_.id = #{id,jdbcType=BIGINT}
     </select>
+    <select id="getByCode" parameterType="string" resultMap="sysFile">
+        SELECT
+        <include refid="sqlSysFileColumns"/>
+        FROM t_sys_file sys_file_
+        WHERE sys_file_.code = #{code,jdbcType=VARCHAR}
+    </select>
 
     <select id="list" resultMap="sysFile">
         SELECT

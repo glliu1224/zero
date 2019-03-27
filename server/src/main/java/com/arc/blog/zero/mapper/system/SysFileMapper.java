@@ -21,4 +21,5 @@ public interface SysFileMapper {
 
     List<SysFile> list();
 
+    SysFile getByCode(String code);
 }
