@@ -1,4 +1,4 @@
-package com.arc.blog.zero.utils;
+package com.arc.blog.utils;
 
 import org.springframework.cglib.beans.BeanCopier;
 

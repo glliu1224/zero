@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2005-2012 springside.org.cn
  */
-package com.arc.blog.zero.utils;
+package com.arc.blog.utils;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;

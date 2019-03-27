@@ -1,4 +1,4 @@
-package com.arc.blog.zero.utils;
+package com.arc.blog.utils;
 
 
 import java.math.BigDecimal;
@@ -11,6 +11,10 @@ import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @author 叶超
+ * @since 2019/3/26 17:15
+ */
 public class StringUtil {
     public static boolean isNull(String value) {
         return value != null && !"".equals(value.trim());

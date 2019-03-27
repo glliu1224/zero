@@ -26,7 +26,7 @@ import javax.annotation.Resource;
 public class SysUserController {
 
     @Resource
-    private SysUserService sysUserService;
+    private SysUserService userService;
 
     //增删改查
 
@@ -43,7 +43,7 @@ public class SysUserController {
     @PostMapping(value = "/save")
     public ResponseVo save(@RequestBody SysUser user) {
         log.debug("新建用户，参数 user={}, ", user.toString());
-        return ResponseVo.success(sysUserService.save(user));
+        return ResponseVo.success(userService.save(user));
 //        return ResponseVo.success(user);
     }
 
@@ -60,7 +60,7 @@ public class SysUserController {
     @GetMapping(value = "/delete/{id}")
     public ResponseVo delete(@PathVariable Long id) {
         log.debug("参数删除用户，参数id={}", id);
-        return ResponseVo.success(sysUserService.delete(id));
+        return ResponseVo.success(userService.delete(id));
 
     }
 
@@ -78,7 +78,7 @@ public class SysUserController {
     @PostMapping("/update")
     public ResponseVo update(@RequestBody SysUser user) {
         log.debug("更新用户,参数user={}, ", user.toString());
-        return ResponseVo.success(sysUserService.update(user));
+        return ResponseVo.success(userService.update(user));
     }
 
     /**
@@ -90,7 +90,7 @@ public class SysUserController {
     @GetMapping(value = "/get/{id}")
     public ResponseVo get(@PathVariable Long id) {
         log.debug("获取单个用户,参数 id={}", id);
-        return ResponseVo.success(sysUserService.get(id));
+        return ResponseVo.success(userService.get(id));
     }
 
     /**
@@ -102,9 +102,20 @@ public class SysUserController {
     @GetMapping(value = "/page")
     public ResponseVo list() {
         log.debug("获取用户列表，无参数！");
-        return ResponseVo.success(sysUserService.list());
+        return ResponseVo.success(userService.list());
     }
 
-
+    /**
+     * 测试登陆 @todo 待删除
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    @GetMapping(value = "/login")
+    public ResponseVo get(@RequestParam String username, @RequestParam String password) {
+        log.debug("login,获取单个用户,参数 username={},password={}", username, password);
+        return ResponseVo.success(userService.login(username, password));
+    }
 }
 

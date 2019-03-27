@@ -1,4 +1,4 @@
-package com.arc.blog.zero.utils;
+package com.arc.blog.utils;
 
 import java.io.File;
 import java.util.HashMap;
@@ -9,6 +9,8 @@ import java.util.regex.Pattern;
 /**
  * <a href="https://github.com/thinkgem/c2bsettlement">
  * 发送电子邮件
+ * @author XuWenXing
+ * @since 2019/3/26 17:15
  */
 public class SendMailUtil {
 
