@@ -58,6 +58,7 @@ public class FileUtil {
     public static boolean isImage(String suffix) {
         if ((suffix != null) && (suffix.length() > 0)) {
             //判断
+            suffix = suffix.toLowerCase();
             switch (suffix) {
                 case "jpg":
                 case "jpeg":

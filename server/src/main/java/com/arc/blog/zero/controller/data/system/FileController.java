@@ -8,6 +8,7 @@ import com.arc.blog.utils.FileUtil;
 import com.arc.blog.zero.service.system.SysFileService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.compress.utils.IOUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -30,10 +31,8 @@ public class FileController {
     private SysFileService fileService;
 
     public static void main(String[] args) {
-
         String originalFilename = "DSC11..1.";
         String suffix = originalFilename.substring(originalFilename.lastIndexOf(".") + 1, originalFilename.length());
-
         System.out.println(suffix);
         System.out.println(originalFilename.length());
         System.out.println(originalFilename.lastIndexOf("."));
@@ -74,7 +73,8 @@ public class FileController {
     /**
      * 临时目录，注意你电脑上是否有该目录
      */
-    private String tempDir = "C:\\Users\\X\\Desktop\\UP\\A\\";
+    @Value("${web.upload.file.path:/data/upload}")
+    private String uploadDir;
 
 
     /**
@@ -91,9 +91,13 @@ public class FileController {
     public ResponseVo singleFileUpload(MultipartFile file) {
         //需求判断文件是否为空 大小已经在yml中做了配置
 
+        System.out.println(uploadDir);
+        System.out.println(uploadDir);
+        System.out.println(uploadDir);
+        System.out.println(uploadDir);
         if (file != null && !file.isEmpty()) {
             log.debug("文件上传入参: 类型={}，名称={}，尺寸={} bytes", file.getContentType(), file.getOriginalFilename(), file.getSize());
-            String code = fileService.writeFileToDiskAndRecord(file, tempDir);
+            String code = fileService.writeFileToDiskAndRecord(file, uploadDir);
             return code == null ? ResponseVo.failure(ErrorCode.FAILURE) : ResponseVo.success(code);
         }
         log.info(ErrorCode.FAILURE.getMsg());

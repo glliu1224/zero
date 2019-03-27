@@ -37,6 +37,8 @@ mybatis:
 
 # 自定义参数；说明 1、web.system.initial:是否在系统启动的时候初始化一些操作
 web:
+  upload:
+    file:
   system:
     initial: true
 #  key: ZZ
