@@ -90,11 +90,6 @@ public class FileController {
     @PostMapping("/upload")
     public ResponseVo singleFileUpload(MultipartFile file) {
         //需求判断文件是否为空 大小已经在yml中做了配置
-
-        System.out.println(uploadDir);
-        System.out.println(uploadDir);
-        System.out.println(uploadDir);
-        System.out.println(uploadDir);
         if (file != null && !file.isEmpty()) {
             log.debug("文件上传入参: 类型={}，名称={}，尺寸={} bytes", file.getContentType(), file.getOriginalFilename(), file.getSize());
             String code = fileService.writeFileToDiskAndRecord(file, uploadDir);
