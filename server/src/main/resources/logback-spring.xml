@@ -10,7 +10,8 @@ debug:当此属性设置为true时，将打印出logback内部日志信息，实
     <!--<property name="logback.appname" value="app"/>-->
     <!--application.yml 传递参数，不能使用logback 自带的<property>标签 -->
     <springProperty scope="context" name="appName" source="spring.application.name"/>
-    <springProperty scope="context" name="appHome" source="logback.dir"/>
+    <!--<springProperty scope="context" name="appHome" source="logback.dir"/>-->
+    <property name="appHome" value="./log"/>
 
     <contextName>${appName}日志 :)</contextName>
 
@@ -58,7 +59,7 @@ debug:当此属性设置为true时，将打印出logback内部日志信息，实
             <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
                 <!--文件路径,定义了日志的切分方式——把每一天的日志归档到一个文件中,以防止日志填满整个磁盘空间-->
                 <!--<fileNamePattern>./logs/ms-custom.%d{yyyy-MM-dd}.log</fileNamePattern>-->
-                <FileNamePattern>${appHome}\zero\${appName}%d{yyyyMMdd}.log</FileNamePattern>
+                <FileNamePattern>${appHome}\${appName}%d{yyyyMMdd}.log</FileNamePattern>
                 <!--只保留最近90天的日志 例如：参数未3 则保留的文件是前三天的加上今天的即4天的-->
                 <maxHistory>3</maxHistory>
                 <!--用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志-->
@@ -79,6 +80,11 @@ debug:当此属性设置为true时，将打印出logback内部日志信息，实
     </appender>
 
 
+
+
+
+
+
     <!--指定最基础的日志输出级别-->
     <root level="DEBUG">
         <!--appender将会添加到这个logger  class用来指定哪种输出策略 -->
@@ -94,14 +100,14 @@ debug:当此属性设置为true时，将打印出logback内部日志信息，实
     <!--根据 application.yml增加环境选择的配置active: dev
     active 的环境，自动采用上面配置的springProfile的 logger 日志-->
     <springProfile name="test,dev">
-        <logger name="com.arc.excel" level="DEBUG" additivity="false">
+        <logger name="com.arc" level="DEBUG" additivity="false">
             <appender-ref ref="consoleLog"/>
             <appender-ref ref="fileLog"/>
         </logger>
     </springProfile>
 
     <springProfile name="prod">
-        <logger name="com.arc.excel.controller" level="INFO" additivity="false">
+        <logger name="com.arc" level="INFO" additivity="false">
             <appender-ref ref="consoleLog"/>
         </logger>
     </springProfile>

@@ -5,7 +5,7 @@ spring:
   application:
     name: blog
   profiles:
-    active: local
+    active: dev
     #这里指定激活那个配置的空间
   resources:
     add-mappings: false
@@ -46,7 +46,7 @@ web:
 ########################################################
 ---
 spring:
-  profiles: local
+  profiles: dev
   datasource:
     #爆红不要紧张，没有问题的只是编辑工具不能识别造成的，本身是正确的
     driver-class-name: com.mysql.cj.jdbc.Driver
