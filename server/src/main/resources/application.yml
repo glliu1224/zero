@@ -46,6 +46,10 @@ web:
 ########################################################
 ---
 spring:
+  servlet:
+    multipart:
+      max-file-size: 10200MB
+      max-request-size: 102400MB
   profiles: dev
   datasource:
     #爆红不要紧张，没有问题的只是编辑工具不能识别造成的，本身是正确的

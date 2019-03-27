@@ -6,8 +6,10 @@ import com.arc.blog.utils.FileUtil;
 import com.arc.blog.zero.service.system.SysFileService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.compress.utils.IOUtils;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -22,33 +24,25 @@ import java.net.URLEncoder;
  *
  * @author yechao
  */
-@RestController
 @Slf4j
+@RestController
+@RequestMapping("/file")
 public class FileController {
 
     @Resource
     private SysFileService fileService;
 
+    public static void main(String[] args) {
 
-    /**
-     * 单文件上传
-     *
-     * @param file
-     * @return
-     */
-    @PostMapping("/upload")
-    public Object singleFileUpload(@RequestPart(value = "file") MultipartFile file) {
-        if (file != null) {
-            log.debug("文件上传入参: 类型={}，名称={}，尺寸={} bytes", file.getContentType(), file.getOriginalFilename(), file.getSize());
-        }
-        //判合法性，非空，大小，格式
-        //文件写入磁盘
-        //记录数据库
+        String originalFilename = "DSC11..1.";
+        String suffix = originalFilename.substring(originalFilename.lastIndexOf(".") + 1, originalFilename.length());
 
-        SysFile sysFile = new SysFile();
-        sysFile.setName(file.getOriginalFilename());
-        return  fileService.save(sysFile);
+        System.out.println(suffix);
+        System.out.println(originalFilename.length());
+        System.out.println(originalFilename.lastIndexOf("."));
+        System.out.println(originalFilename.lastIndexOf(".")+1);
     }
+
 
     /**
      * 文件下载，或者说叫预览，总之就是文件传给用户
@@ -56,7 +50,7 @@ public class FileController {
      * @param id
      * @param response
      */
-    @GetMapping("/file/{fileCode}")
+    @GetMapping("/{fileCode}")
     public void fileDownload(@PathVariable("id") Long id, HttpServletResponse response) {
         //根据文件id信息检索文件条目
         //获得文件所在路径
@@ -85,7 +79,7 @@ public class FileController {
      * @param id
      * @param response
      */
-    @GetMapping("/file/show/id")
+    @GetMapping("/show/id")
     public void reveal(@PathVariable("id") Long id, HttpServletResponse response) {
         SysFile fileInfo = fileService.get(id);
         InputStream inputStream = null;

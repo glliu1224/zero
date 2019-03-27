@@ -60,7 +60,7 @@ public class ZeroSecurityConfig extends WebSecurityConfigurerAdapter {
                 //禁用CSRF保护
                 .csrf().disable()
                 //不拦截资源的url
-                .authorizeRequests().antMatchers("/login", "/test/**", "/info").permitAll()
+                .authorizeRequests().antMatchers("/login", "/test/**", "/file/**", "/info").permitAll()
                 //需要认证的 	证明是真实的、可靠的或有效
                 .anyRequest().authenticated()
 
