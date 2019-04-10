@@ -1,4 +1,4 @@
-package com.arc.blog.zero.utils;
+package com.arc.blog.zero.controller.data.poi;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

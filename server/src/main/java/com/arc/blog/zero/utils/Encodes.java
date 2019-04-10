@@ -3,10 +3,10 @@
  */
 package com.arc.blog.zero.utils;
 
+import com.arc.blog.zero.controller.data.poi.Exceptions;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
-import org.apache.commons.lang3.StringEscapeUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -98,33 +98,33 @@ public class Encodes {
 		return new String(chars);
 	}
 
-	/**
-	 * Html 转码.
-	 */
-	public static String escapeHtml(String html) {
-		return StringEscapeUtils.escapeHtml4(html);
-	}
+//	/**
+//	 * Html 转码.
+//	 */
+//	public static String escapeHtml(String html) {
+//		return StringEscapeUtils.escapeHtml4(html);
+//	}
 
-	/**
-	 * Html 解码.
-	 */
-	public static String unescapeHtml(String htmlEscaped) {
-		return StringEscapeUtils.unescapeHtml4(htmlEscaped);
-	}
-
-	/**
-	 * Xml 转码.
-	 */
-	public static String escapeXml(String xml) {
-		return StringEscapeUtils.escapeXml10(xml);
-	}
-
-	/**
-	 * Xml 解码.
-	 */
-	public static String unescapeXml(String xmlEscaped) {
-		return StringEscapeUtils.unescapeXml(xmlEscaped);
-	}
+//	/**
+//	 * Html 解码.
+//	 */
+//	public static String unescapeHtml(String htmlEscaped) {
+//		return StringEscapeUtils.unescapeHtml4(htmlEscaped);
+//	}
+//
+//	/**
+//	 * Xml 转码.
+//	 */
+//	public static String escapeXml(String xml) {
+//		return StringEscapeUtils.escapeXml10(xml);
+//	}
+//
+//	/**
+//	 * Xml 解码.
+//	 */
+//	public static String unescapeXml(String xmlEscaped) {
+//		return StringEscapeUtils.unescapeXml(xmlEscaped);
+//	}
 
 	/**
 	 * URL 编码, Encode默认为UTF-8.

@@ -11,7 +11,7 @@
  Target Server Version : 80015
  File Encoding         : 65001
 
- Date: 14/03/2019 12:46:07
+ Date: 10/04/2019 17:21:03
 */
 
 SET NAMES utf8mb4;
@@ -225,7 +225,7 @@ CREATE TABLE `t_cpu_mark`  (
   `create_date` datetime(0) NULL DEFAULT NULL COMMENT '测试日期',
   `update_date` timestamp(0) NULL DEFAULT NULL COMMENT '更新日期',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = 'cpu分数信息记录表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = 'cpu分数信息记录表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_cpu_mark
@@ -3661,24 +3661,35 @@ CREATE TABLE `t_sys_user`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '自增id',
   `nickname` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户昵称',
   `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '头像',
-  `status` int(11) NOT NULL DEFAULT 0 COMMENT '账号状态状态，status, condition, mode, position, state of affairs, fettle',
-  `create_date` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `status` int(11) NULL DEFAULT 0 COMMENT '账号状态状态，status, condition, mode, position, state of affairs, fettle',
+  `create_date` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_date` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统用户表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 66 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统用户表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_sys_user
 -- ----------------------------
-INSERT INTO `t_sys_user` VALUES (1, 'admin', '1', 1, '2018-03-01 16:00:04', '2018-03-01 16:00:11');
-INSERT INTO `t_sys_user` VALUES (2, 'test', '2', 1, '2018-03-01 16:01:00', '2018-03-07 16:01:05');
-INSERT INTO `t_sys_user` VALUES (5, '毛熊', '3', 1, '2018-03-20 09:38:48', NULL);
-INSERT INTO `t_sys_user` VALUES (7, '高丽', '4', 1, '2018-03-20 09:43:53', NULL);
-INSERT INTO `t_sys_user` VALUES (13, '二毛', '5', 1, '2018-03-22 10:14:13', NULL);
-INSERT INTO `t_sys_user` VALUES (14, '长颈鹿', '6', 1, '2018-03-22 21:13:04', NULL);
-INSERT INTO `t_sys_user` VALUES (15, '狮子', '7', 1, '2018-03-22 21:19:47', NULL);
-INSERT INTO `t_sys_user` VALUES (16, '老鼠', '7', 1, '2018-03-22 21:24:48', NULL);
-INSERT INTO `t_sys_user` VALUES (17, '山鸡', '8', 1, '2018-03-22 21:25:55', NULL);
+INSERT INTO `t_sys_user` VALUES (1, '11112222', 'avatar11111', 1, '2018-03-01 16:00:04', '2018-03-01 16:00:11');
+INSERT INTO `t_sys_user` VALUES (2, '1111', 'avatar11111', 1, '2018-03-01 16:01:00', '2018-03-07 16:01:05');
+INSERT INTO `t_sys_user` VALUES (3, '毛熊', '3', 1, '2018-03-20 09:38:48', NULL);
+INSERT INTO `t_sys_user` VALUES (4, '高丽', '4', 1, '2018-03-20 09:43:53', NULL);
+INSERT INTO `t_sys_user` VALUES (5, '二毛', '5', 1, '2018-03-22 10:14:13', NULL);
+INSERT INTO `t_sys_user` VALUES (6, '长鹿', '6', 1, '2018-03-22 21:13:04', NULL);
+INSERT INTO `t_sys_user` VALUES (7, '狮子', '7', 1, '2018-03-22 21:19:47', NULL);
+INSERT INTO `t_sys_user` VALUES (8, '老鼠', '7', 1, '2018-03-22 21:24:48', NULL);
+INSERT INTO `t_sys_user` VALUES (9, '山鸡', '8', 1, '2018-03-22 21:25:55', NULL);
+INSERT INTO `t_sys_user` VALUES (49, 'aa', 'aa', 1, '2019-03-21 15:16:30', NULL);
+INSERT INTO `t_sys_user` VALUES (50, 'aaaa', 'aa', 1, '2019-03-21 15:16:47', NULL);
+INSERT INTO `t_sys_user` VALUES (51, 'aaaa', 'aa', 1, '2019-03-21 15:17:15', NULL);
+INSERT INTO `t_sys_user` VALUES (52, 'BB', 'bb', 1, '2019-03-21 16:10:19', NULL);
+INSERT INTO `t_sys_user` VALUES (53, 'BB', 'bb', 1, '2019-03-21 16:11:13', NULL);
+INSERT INTO `t_sys_user` VALUES (54, 'ewrw', 'avatar11111', 1, '2019-03-22 11:53:50', NULL);
+INSERT INTO `t_sys_user` VALUES (55, 'ewrw', 'avatar11111', 1, '2019-03-22 11:53:57', NULL);
+INSERT INTO `t_sys_user` VALUES (56, 'ewrw', 'avatar11111', 1, '2019-03-22 11:54:50', NULL);
+INSERT INTO `t_sys_user` VALUES (57, 'ewrw', 'avatar11111', 1, '2019-03-22 11:55:50', NULL);
+INSERT INTO `t_sys_user` VALUES (65, 'ssss', 'aaaa', NULL, '2019-04-04 16:46:39', NULL);
+INSERT INTO `t_sys_user` VALUES (66, 'ssss', 'aaaa', NULL, '2019-04-04 18:00:56', NULL);
 
 -- ----------------------------
 -- Table structure for t_sys_user_area

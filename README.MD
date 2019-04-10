@@ -184,7 +184,7 @@ Hibernate Validator 附加的 constraint
 如有特殊异常处理需要，可继承以上异常类，并在ExceptionHandle中定义处理逻辑。
 
 微服务层异常抛出处理：
-抛出异常应按分层处理，如ms-api抛出ApiRuntimeException(ErrorCode errorCode)，
+抛出异常应按分层处理，如ms-api抛出ApiRuntimeException(ErrorCode projectCode)，
 在ErrorCode中定义异常的具体内部代码及描述，定义应尽量保证复用并遵守定义规则（见类中注释）。
 ErrorCode对应ResultCode为返回外部返回码，定义时注意匹配关系。
 异常处理会自动组装MicroServiceResponse对象，在web层可依据返回对象接收微服务异常code & msg。

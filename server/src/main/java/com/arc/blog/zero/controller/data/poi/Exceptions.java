@@ -1,7 +1,4 @@
-/**
- * Copyright (c) 2005-2012 springside.org.cn
- */
-package com.arc.blog.zero.utils;
+package com.arc.blog.zero.controller.data.poi;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.PrintWriter;

@@ -1,4 +1,4 @@
-package com.arc.blog.zero.controller.data.system;
+package com.arc.blog.zero.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

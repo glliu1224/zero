@@ -110,7 +110,7 @@ public class SysFileServiceImpl implements SysFileService {
                 //描述信息记录数据库
                 SysFile sysFile = createSysFile(file, toDiskPath);
                 Long id = this.save(sysFile);
-                return id == null ? null : sysFile.getCode();
+                return id == null ? null : toDiskPath;
             }
         }
         return null;

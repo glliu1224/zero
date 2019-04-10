@@ -1,6 +1,6 @@
 package com.arc.blog.model.vo;
 
-import com.arc.blog.enums.ErrorCode;
+import com.arc.blog.enums.ProjectCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -20,15 +20,13 @@ public class ResponseVo<T> extends BaseVo {
     /**
      * 状态信息 code 用String或者数字类型（long/int？）。私以为：类型是数字类型 可能高效一些，
      */
-    private String code;
+    private int code;
 
     /**
      * 状态信息
      */
     private String msg;
 
-
-//    private Boolean success;
 
     /**
      * 有效数据
@@ -39,10 +37,9 @@ public class ResponseVo<T> extends BaseVo {
     public ResponseVo() {
     }
 
-    public ResponseVo(String code, String msg, Boolean success, T data) {
+    public ResponseVo(int code, String msg, T data) {
         this.code = code;
         this.msg = msg;
-//        this.success = success;
         this.data = data;
     }
 
@@ -52,36 +49,36 @@ public class ResponseVo<T> extends BaseVo {
 
     //success方法
     public static <T> ResponseVo<T> success() {
-        return new ResponseVo<T>(ErrorCode.SUCCESS.getCode(), ErrorCode.SUCCESS.getMsg(), Boolean.TRUE, null);
+        return new ResponseVo<T>(ProjectCode.SUCCESS.getCode(), ProjectCode.SUCCESS.getMsg(),  null);
     }
 
     public static <T> ResponseVo<T> success(T data) {
-        return new ResponseVo<T>(ErrorCode.SUCCESS.getCode(), ErrorCode.SUCCESS.getMsg(), Boolean.TRUE, data);
+        return new ResponseVo<T>(ProjectCode.SUCCESS.getCode(), ProjectCode.SUCCESS.getMsg(),  data);
     }
 
-    public static <T> ResponseVo<T> success(ErrorCode enumCode) {
-        return new ResponseVo<T>(enumCode.getCode(), enumCode.getMsg(), Boolean.TRUE, null);
+    public static <T> ResponseVo<T> success(ProjectCode enumCode) {
+        return new ResponseVo<T>(enumCode.getCode(), enumCode.getMsg(),  null);
     }
 
-    public static <T> ResponseVo<T> success(ErrorCode enumCode, T data) {
-        return new ResponseVo<T>(enumCode.getCode(), enumCode.getMsg(), Boolean.TRUE, data);
+    public static <T> ResponseVo<T> success(ProjectCode enumCode, T data) {
+        return new ResponseVo<T>(enumCode.getCode(), enumCode.getMsg(),  data);
     }
 
     //失败
     public static <T> ResponseVo<T> failure() {
-        return new ResponseVo<T>(ErrorCode.FAILURE.getCode(), ErrorCode.FAILURE.getMsg(), Boolean.FALSE, null);
+        return new ResponseVo<T>(ProjectCode.FAILURE.getCode(), ProjectCode.FAILURE.getMsg(), null);
     }
 
-    public static <T> ResponseVo<T> failure(ErrorCode enumCode) {
-        return new ResponseVo<T>(enumCode.getCode(), enumCode.getMsg(), Boolean.FALSE, null);
+    public static <T> ResponseVo<T> failure(ProjectCode enumCode) {
+        return new ResponseVo<T>(enumCode.getCode(), enumCode.getMsg(), null);
     }
 
     public static <T> ResponseVo<T> failure(T data) {
-        return new ResponseVo<T>(ErrorCode.FAILURE.getCode(), ErrorCode.FAILURE.getMsg(), Boolean.FALSE, data);
+        return new ResponseVo<T>(ProjectCode.FAILURE.getCode(), ProjectCode.FAILURE.getMsg(), data);
     }
 
-    public static <T> ResponseVo<T> failure(ErrorCode enumCode, T data) {
-        return new ResponseVo<T>(enumCode.getCode(), enumCode.getMsg(), Boolean.FALSE, data);
+    public static <T> ResponseVo<T> failure(ProjectCode enumCode, T data) {
+        return new ResponseVo<T>(enumCode.getCode(), enumCode.getMsg(), data);
     }
 
 // @todo     下次再改！！！
@@ -94,9 +91,9 @@ public class ResponseVo<T> extends BaseVo {
 //     */
 //    public static <T> ResponseVo<T> buildResponse(MicroServiceResponse<T> response) {
 //        if (response == null) {
-//            throw new BusinessRuntimeException(ErrorCode.NULL_RESPONSE);
+//            throw new BizException(ProjectCode.NULL_RESPONSE);
 //        }
-//        return StringUtils.equals(response.getCode(), ErrorCode.SUCCESS.getCode()) ? ResponseVo.success(response.getData()) : ResponseVo.failure(ErrorCode.buildFailure(response.getCode(), response.getMsg()));
+//        return StringUtils.equals(response.getCode(), ProjectCode.SUCCESS.getCode()) ? ResponseVo.success(response.getData()) : ResponseVo.failure(ProjectCode.buildFailure(response.getCode(), response.getMsg()));
 //    }
 //
 //    /**
@@ -108,10 +105,10 @@ public class ResponseVo<T> extends BaseVo {
 //     */
 //    public static <T> ResponseVo<T> convertResponse(MicroServiceResponse<?> response, Class<T> target) {
 //        if (response == null || target == null) {
-//            throw new BusinessRuntimeException(ErrorCode.NULL_RESPONSE);
+//            throw new BizException(ProjectCode.NULL_RESPONSE);
 //        }
 //        T instance = BeanCopierUtil.copyBean(response.getData(), target);
-//        return StringUtils.equals(response.getCode(), ErrorCode.SUCCESS.getCode()) ? ResponseVo.success(instance) : ResponseVo.failure(ErrorCode.buildFailure(response.getCode(), response.getMsg()));
+//        return StringUtils.equals(response.getCode(), ProjectCode.SUCCESS.getCode()) ? ResponseVo.success(instance) : ResponseVo.failure(ProjectCode.buildFailure(response.getCode(), response.getMsg()));
 //    }
 //
 //    /**
@@ -123,17 +120,17 @@ public class ResponseVo<T> extends BaseVo {
 //     */
 //    public static <T> ResponseVo<PageResponse<T>> convertPageResponse(MicroServiceResponse<? extends PageResponse> response, Class<T> target) {
 //        if (response == null || target == null) {
-//            throw new BusinessRuntimeException(ErrorCode.NULL_RESPONSE);
+//            throw new BizException(ProjectCode.NULL_RESPONSE);
 //        }
 //        if (response.getData() == null) {
-//            throw new BusinessRuntimeException(ErrorCode.PAGE_NULL_RESPONSE);
+//            throw new BizException(ProjectCode.PAGE_NULL_RESPONSE);
 //        }
 //        List<T> list = BeanCopierUtil.copyList(response.getData().getData(), target);
 //        PageResponse<T> instance = new PageResponse<>();
 //        instance.setData(list);
 //        instance.setTotalPages(response.getData().getTotalPages());
 //        instance.setTotalElements(response.getData().getTotalElements());
-//        return StringUtils.equals(response.getCode(), ErrorCode.SUCCESS.getCode()) ? ResponseVo.success(instance) : ResponseVo.failure(ErrorCode.buildFailure(response.getCode(), response.getMsg()));
+//        return StringUtils.equals(response.getCode(), ProjectCode.SUCCESS.getCode()) ? ResponseVo.success(instance) : ResponseVo.failure(ProjectCode.buildFailure(response.getCode(), response.getMsg()));
 //    }
 //
 //    /**
@@ -145,10 +142,10 @@ public class ResponseVo<T> extends BaseVo {
 //     */
 //    public static <T> ResponseVo<List<T>> convertListResponse(MicroServiceResponse<? extends List> response, Class<T> target) {
 //        if (response == null || target == null) {
-//            throw new BusinessRuntimeException(ErrorCode.NULL_RESPONSE);
+//            throw new BizException(ProjectCode.NULL_RESPONSE);
 //        }
 //        List<T> instance = BeanCopierUtil.copyList(response.getData(), target);
-//        return StringUtils.equals(response.getCode(), ErrorCode.SUCCESS.getCode()) ? ResponseVo.success(instance) : ResponseVo.failure(ErrorCode.buildFailure(response.getCode(), response.getMsg()));
+//        return StringUtils.equals(response.getCode(), ProjectCode.SUCCESS.getCode()) ? ResponseVo.success(instance) : ResponseVo.failure(ProjectCode.buildFailure(response.getCode(), response.getMsg()));
 //    }
 //
 //    /**
@@ -160,10 +157,10 @@ public class ResponseVo<T> extends BaseVo {
 //     */
 //    public static <T> ResponseVo<List<T>> convertListResponse(MicroServiceResponse<? extends List> response, Class<T> target, Map<String, String> relation) {
 //        if (response == null || target == null) {
-//            throw new BusinessRuntimeException(ErrorCode.NULL_RESPONSE);
+//            throw new BizException(ProjectCode.NULL_RESPONSE);
 //        }
 //        List<T> instance = BeanCopierUtil.copyList(response.getData(), target, relation);
-//        return StringUtils.equals(response.getCode(), ErrorCode.SUCCESS.getCode()) ? ResponseVo.success(instance) : ResponseVo.failure(ErrorCode.buildFailure(response.getCode(), response.getMsg()));
+//        return StringUtils.equals(response.getCode(), ProjectCode.SUCCESS.getCode()) ? ResponseVo.success(instance) : ResponseVo.failure(ProjectCode.buildFailure(response.getCode(), response.getMsg()));
 //    }
 
 }

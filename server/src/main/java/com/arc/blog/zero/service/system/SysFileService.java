@@ -31,7 +31,7 @@ public interface SysFileService {
      *
      * @param file    文件
      * @param tempDir 目录
-     * @return 数据库标记的code，用于查询
+     * @return 数据库记录凭据--这里返回的文件路径（toDiskPath 唯一），用于查询
      */
     String writeFileToDiskAndRecord(MultipartFile file, String tempDir);
 
