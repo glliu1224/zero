@@ -18,3 +18,12 @@ public class ZeroServerApplication {
 //动态代理
 // AOP
 //声明式编程
+
+//控制反转（DI 依赖注入 Dependency Injection） 依赖查找DL dependency  lookup
+//基本概念：不创建对象，但是描述创建他们的方式  IOC
+
+//注入的方式
+//setter
+//构造
+//强制赋值
+//
