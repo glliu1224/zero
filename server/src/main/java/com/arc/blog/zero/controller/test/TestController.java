@@ -1,9 +1,13 @@
 package com.arc.blog.zero.controller.test;
 
 import com.arc.blog.enums.TypeEnum;
+import com.arc.blog.model.domain.system.SysUser;
 import com.arc.blog.model.vo.ResponseVo;
+import com.arc.blog.zero.service.system.SysUserService;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -81,6 +85,24 @@ public class TestController {
                 System.out.println(TypeEnum.E.getNumber().equals((int) num) + "-------------" + num);
             }
         }
+    }
+
+    @RequestMapping("/login/{u}/{p}")
+    public ResponseVo test1(@PathVariable String u, @PathVariable String p) {
+        SysUser sysUser = new SysUser();
+        sysUser.setId(1L);
+        sysUser.setNickname("root");
+        return ResponseVo.success(sysUser);
+
+    }
+
+    @Autowired
+    private SysUserService userService;
+
+    @RequestMapping("/users")
+    public ResponseVo testUsers() {
+        return ResponseVo.success(userService.list());
+
     }
 
     @RequestMapping("/int")
