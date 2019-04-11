@@ -1,4 +1,4 @@
-package com.arc.blog.zero.aop;
+package com.arc.blog.zero.config.aop;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;

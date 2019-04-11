@@ -1,10 +1,11 @@
 package com.arc.blog.zero.controller.test;
 
 import com.arc.blog.enums.TypeEnum;
+import com.arc.blog.model.vo.ResponseVo;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 测试跳转以及数据返回用
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Api
 @Slf4j
-@Controller
+@RestController
 @RequestMapping("/test")
 public class TestController {
 
@@ -43,13 +44,7 @@ public class TestController {
     //@ApiModelProperty：描述一个model的属性
 
 
-
-
-
     ////////////////////////////////////////
-    public static void main(String[] args) {
-        fun2();
-    }
 
     public static void fun1(String[] args) {
         System.out.println((double) (15 / 21));//0.0
@@ -86,5 +81,41 @@ public class TestController {
                 System.out.println(TypeEnum.E.getNumber().equals((int) num) + "-------------" + num);
             }
         }
+    }
+
+    @RequestMapping("/int")
+    public ResponseVo test() {
+        Integer a = 1;
+        System.out.println(a.hashCode());
+        System.out.println(a.hashCode());
+        System.out.println(a.hashCode());
+        Integer b = 1;
+        System.out.println(b.hashCode());
+        System.out.println(b.hashCode());
+        System.out.println(b.hashCode());
+        long l = b.longValue();
+        System.out.println(l);
+        int i = b.compareTo(a);
+        System.out.println(i);
+        System.out.println(i);
+        System.out.println(i);
+        System.out.println(i);
+//        Object
+
+
+        //compareTo(数字a 与数字b比啊) ··    相关返回0 ,a大于b返回1，a小于b返回-1
+        //如果指定的数与参数相等返回0。
+        //如果指定的数小于参数返回 -1。
+        //如果指定的数大于参数返回 1。
+        Integer x = 5;
+        System.out.println(x.compareTo(3));
+        System.out.println(x.compareTo(5));
+        System.out.println(x.compareTo(8));
+
+        return ResponseVo.success(a.hashCode() == b.hashCode());
+    }
+
+    public static void main(String[] args) {
+        ResponseVo test = new TestController().test();
     }
 }
