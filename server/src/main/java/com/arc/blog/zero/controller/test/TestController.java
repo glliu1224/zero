@@ -119,12 +119,7 @@ public class TestController {
         System.out.println(l);
         int i = b.compareTo(a);
         System.out.println(i);
-        System.out.println(i);
-        System.out.println(i);
-        System.out.println(i);
 //        Object
-
-
         //compareTo(数字a 与数字b比啊) ··    相关返回0 ,a大于b返回1，a小于b返回-1
         //如果指定的数与参数相等返回0。
         //如果指定的数小于参数返回 -1。

@@ -6,7 +6,6 @@ spring:
     name: blog
   profiles:
     active: dev
-    #这里指定激活那个配置的空间
   resources:
     add-mappings: false
     static-locations: classpath:/static/,classpath:/templates/index/
@@ -24,8 +23,7 @@ spring:
     encoding: UTF-8
     #https://blog.csdn.net/zoeou/article/details/78629032
 
-#配置日志
-#  这里日志用xml去配置
+#配置日志,日志用xml去配置
 logback:
   dir: ./log
 
