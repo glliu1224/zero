@@ -1,5 +1,8 @@
 #项目说明
 
+todo 合并 配置 settings.jar
+ProjectViewSharedSettings
+
 ######学习本身就是值得学习的，所以我们需要不断学习
 ##方法
 1. 定位问题，给出解决方案

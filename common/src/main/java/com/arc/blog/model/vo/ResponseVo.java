@@ -1,6 +1,6 @@
 package com.arc.blog.model.vo;
 
-import com.arc.blog.enums.ProjectCode;
+import com.arc.enums.common.ProjectCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

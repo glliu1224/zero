@@ -1,8 +1,7 @@
 package com.arc.blog.zero.controller.data.system;
 
-
-import com.arc.blog.enums.ProjectCode;
-import com.arc.blog.exception.BizException;
+import com.arc.enums.common.ProjectCode;
+import com.arc.exception.BizException;
 import com.arc.blog.model.domain.system.SysFile;
 import com.arc.blog.model.vo.ResponseVo;
 import com.arc.blog.utils.FileUtil;
@@ -40,6 +39,12 @@ public class FileController {
     @Value("${web.upload.file.path:/data/upload}")
     private String uploadDir;
 
+
+    @GetMapping("/query/{code}")
+    public ResponseVo singleFileUpload(@PathVariable String code) {
+        SysFile byCode = fileService.getByCode(code);
+        return ResponseVo.success(byCode);
+    }
     /**
      * 单文件上传
      * 记录日志
