@@ -1,8 +1,8 @@
 package com.arc.blog.zero.service.system.impl;
 
-import com.arc.blog.enums.system.ParentKey;
-import com.arc.blog.enums.system.SysResourceType;
-import com.arc.blog.enums.system.WebSysResource;
+import com.arc.enums.system.ParentKey;
+import com.arc.enums.system.SysResourceType;
+import com.arc.enums.system.WebSysResource;
 import com.arc.blog.model.domain.system.SysResource;
 import com.arc.blog.zero.service.system.SysResourceService;
 import lombok.extern.slf4j.Slf4j;

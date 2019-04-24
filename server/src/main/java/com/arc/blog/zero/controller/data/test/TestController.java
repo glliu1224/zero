@@ -1,4 +1,4 @@
-package com.arc.blog.zero.controller.test;
+package com.arc.blog.zero.controller.data.test;
 
 import com.arc.blog.enums.TypeEnum;
 import com.arc.blog.model.domain.system.SysUser;

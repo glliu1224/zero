@@ -1,7 +1,6 @@
 package com.arc.blog.zero.service.system.impl;
 
 import com.arc.blog.model.domain.system.SysFile;
-import com.arc.blog.utils.FileUtil;
 import com.arc.blog.zero.mapper.system.SysFileMapper;
 import com.arc.blog.zero.service.system.SysFileService;
 import org.slf4j.Logger;

@@ -1,7 +1,7 @@
 package com.arc.blog.zero.security.model;
 
 
-import com.arc.blog.enums.common.EnableDisable;
+import com.arc.enums.common.EnableDisable;
 import com.arc.blog.model.domain.system.SysRole;
 import com.arc.blog.model.domain.system.SysUser;
 import lombok.ToString;

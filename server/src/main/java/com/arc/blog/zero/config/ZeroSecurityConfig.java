@@ -1,8 +1,8 @@
 package com.arc.blog.zero.config;
 
 
-import com.arc.blog.utils.MD5Utils;
 import com.arc.blog.zero.security.core.SecurityUserService;
+import com.arc.utils.MD5Utils;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
