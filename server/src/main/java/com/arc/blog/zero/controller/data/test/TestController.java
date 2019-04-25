@@ -1,15 +1,21 @@
 package com.arc.blog.zero.controller.data.test;
 
-import com.arc.blog.enums.TypeEnum;
 import com.arc.blog.model.domain.system.SysUser;
 import com.arc.blog.model.vo.ResponseVo;
 import com.arc.blog.zero.service.system.SysUserService;
+import com.arc.enums.TypeEnum;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.channels.FileChannel;
 
 /**
  * 测试跳转以及数据返回用
@@ -132,7 +138,55 @@ public class TestController {
         return ResponseVo.success(a.hashCode() == b.hashCode());
     }
 
+
+    /**
+     * 使用文件通道的方式复制文件     源文件 复制到的新文件
+     *
+     * @param source
+     * @param target
+     */
+    public void fileChannelCopy(File source, File target) {
+
+        Character ch = '1';
+        System.out.println(ch.hashCode());
+        FileInputStream fi = null;
+        FileOutputStream fo = null;
+        FileChannel in = null;
+        FileChannel out = null;
+        try {
+            fi = new FileInputStream(source);
+            fo = new FileOutputStream(target);
+            in = fi.getChannel();//得到对应的文件通道
+            out = fo.getChannel();//得到对应的文件通道
+            in.transferTo(0, in.size(), out);//连接两个通道，并且从in通道读取，然后写入out通道
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fi.close();
+                in.close();
+                fo.close();
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    private void fun1() {
+        System.out.println(this.getClass().getResource(""));
+        System.out.println(this.getClass().getResource("/"));
+        System.out.println(this.getClass().getClassLoader().getResource(""));
+        System.out.println(ClassLoader.getSystemResource(""));
+        System.out.println(Thread.currentThread().getContextClassLoader().getResource(""));
+    }
+
     public static void main(String[] args) {
-        ResponseVo test = new TestController().test();
+        //原文：https://blog.csdn.net/mp624183768/article/details/79516191
+        new TestController().fun1();
+//        ResponseVo test = new TestController().test();
     }
 }
+
+

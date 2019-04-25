@@ -3,8 +3,8 @@ package com.arc.blog.zero.service.system.impl;
 import com.arc.blog.model.domain.system.SysFile;
 import com.arc.blog.zero.mapper.system.SysFileMapper;
 import com.arc.blog.zero.service.system.SysFileService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.arc.utils.FileUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,9 +18,9 @@ import java.util.List;
  * @author yechao
  * @since 2019/1/13 19:41
  */
+@Slf4j
 @Service
 public class SysFileServiceImpl implements SysFileService {
-    private static final Logger log = LoggerFactory.getLogger(FileUtil.class);
 
     @Resource
     private SysFileMapper sysFileMapper;
